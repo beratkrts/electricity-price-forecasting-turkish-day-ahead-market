@@ -1,0 +1,4 @@
+Senaryo,WAPE (%),MAE ($),RMSE ($),Süre (s)
+Senaryo A (1 Epoch Online),20.68,10.54,15.48,352.4
+Senaryo B (3 Epoch Online),20.19,10.29,15.4,371.3
+Senaryo C (5 Epoch Online),22.0,11.21,16.86,401.4

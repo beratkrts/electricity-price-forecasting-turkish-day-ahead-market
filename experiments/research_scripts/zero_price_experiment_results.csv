@@ -1,0 +1,4 @@
+Model,Overall MAE ($),Overall RMSE ($),Low-Price MAE ($<=15),Low-Price Below P10 (%),80% Coverage (%),Below P10 All (%),Above P90 All (%),Avg Band ($),Max P90 ($)
+1. Baseline (Mevcut Model - WF),8.37,12.75,8.77,41.0,77.1,17.3,5.5,28.26,108.0
+2. Gelişmiş Özellikli (Lag0 Ratios - WF),8.16,12.42,8.29,39.3,76.7,16.5,6.8,25.93,108.7
+3. Log-Transform (Log1p Kuantil - WF),8.09,12.46,7.14,38.2,77.6,16.5,5.9,28.74,108.1

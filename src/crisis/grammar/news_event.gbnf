@@ -1,0 +1,35 @@
+# ÜRETİLMİŞ DOSYA — elle düzenleme. Kaynak: src/crisis/labeling_schema.py
+# Yeniden üret: python -m src.crisis.labeling_schema --write-grammar
+
+root ::= "{" nl
+  "  \"alaka_skoru\": " prob "," nl
+  "  \"kanal\": " kanal "," nl
+  "  \"yon\": " yon "," nl
+  "  \"ileriye_donuk\": " bool "," nl
+  "  \"etki_baslangici\": " (tarih | null) "," nl
+  "  \"sure_gun\": " (tamsayi | null) "," nl
+  "  \"miktar\": " (miktar | null) "," nl
+  "  \"ozet\": " ozet nl
+  "}"
+
+kanal   ::= "\"fuel_cost\"" | "\"supply_capacity\"" | "\"demand\"" | "\"regulation\"" | "\"fx_macro\"" | "\"renewable\"" | null
+yon     ::= "\"yukari\"" | "\"asagi\"" | "\"belirsiz\""
+birim   ::= "\"yuzde\"" | "\"gun\"" | "\"mw\"" | "\"mcm_gun\"" | "\"tl_mwh\"" | "\"usd_mwh\"" | "\"oran\""
+
+miktar  ::= "{\"deger\": " sayi ", \"birim\": " birim "}"
+
+# 0, 1, ya da 0.NN — model ara değer uydurmasın diye dar tutuldu
+prob    ::= "0" | "1" | "0." [0-9] [0-9]?
+sayi    ::= "-"? [0-9]+ ("." [0-9]+)?
+tamsayi ::= [1-9] [0-9]? [0-9]? [0-9]?
+bool    ::= "true" | "false"
+null    ::= "null"
+
+# ISO tarih, opsiyonel saat: "2022-01-31" veya "2022-01-31T08:00"
+tarih   ::= "\"" d d d d "-" d d "-" d d ("T" d d ":" d d)? "\""
+d       ::= [0-9]
+
+# Özet: kaçış gerektiren karakterler dışlandı, uzunluk Python tarafında kırpılır
+ozet    ::= "\"" [^"\\\n]+ "\""
+
+nl      ::= "\n"
