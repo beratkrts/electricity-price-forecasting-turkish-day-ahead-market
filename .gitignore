@@ -1,6 +1,9 @@
 .env
 .env.*
 !.env.example
+.eptr2-tgt
+experiments/notebooks/07_lago_protocol/_tr_epf_ext_eptr_raw.pkl
+experiments/notebooks/01_data_exploration/_market_history_eptr_raw.pkl
 __pycache__/
 *.py[cod]
 .pytest_cache/
@@ -12,3 +15,5 @@ literature/lit.db
 venv/
 env/
 reports/
+logs/
+experiments/notebooks/07_lago_protocol/_wind_2021_2024.pkl

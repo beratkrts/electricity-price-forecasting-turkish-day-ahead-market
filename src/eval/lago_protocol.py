@@ -49,6 +49,80 @@ from sklearn.linear_model import LassoLarsCV, LassoLarsIC
 from sklearn.preprocessing import StandardScaler
 
 # --------------------------------------------------------------------------
+# DONDURULMUŞ PROTOKOL — bkz. LAGO_BENCHMARK_PLAN.md §1
+# --------------------------------------------------------------------------
+# `07_lago_protocol/` altındaki HER benchmark koşusu bu sabitleri kullanır.
+# `01`/`02`/`03` defterleri bunlardan önce yazıldı, üç ayrı protokol
+# kullanıyorlar (plan §0) — yeni `04`/`05` ve sonrası buraya uyar.
+
+TEST_END = pd.Timestamp("2026-08-27", tz="Europe/Istanbul")
+# Ham fiyat verisinin son tam günü (27 Ağu 2026 itibarıyla). Yeni veri gelince
+# elle güncellenir — koşular arası AYNI olmalı.
+
+TEST_START = pd.Timestamp("2024-08-30", tz="Europe/Istanbul")
+# BİRİNCİL pencere: son 104 hafta (728 gün). Lago §5.3 "last 104 weeks" VE
+# `gold.ptf_predictions_daily` 2024-08-12'de başlıyor → canlı LightGBM'in
+# kayıtlı tahmin geçmişinin tamamı. LightGBM'li tam yarış yalnız bu pencerede.
+
+LONG_TEST_START = pd.Timestamp("2023-08-28", tz="Europe/Istanbul")
+# UZUN pencere: 3 yıl (1096 gün). Yalnız LEAR ailesi + naive (canlı-kayıt
+# kısıtı yok). Rejim çeşitliliği: 2023 yüksek-fiyat kuyruğu + 2024 normalleşme
+# + 2026 çöküş. 4 kalibrasyon penceresi de bu aralıkta geçerli.
+
+REGIME_STRATA = {
+    # birincil (728g) pencere içi rejim katmanları — aylık ort fiyat:
+    "normal":       ("2024-08-30", "2026-01-31"),   # $65-77, sıfır fiyat ~%0
+    "cokus":        ("2026-02-01", "2026-06-30"),   # $47 -> $13, sıfır saat %3->%32
+    "toparlanma":   ("2026-07-01", "2026-08-27"),   # $57-62
+}
+
+BLOWN_THRESHOLD_USD = 500.0
+# Bir gün, herhangi bir saatinde |tahmin| bunu aşarsa "patlama günü" sayılıp
+# temiz kümeden çıkarılır. LEAR n<p pencerelerde asinh+LASSO ekstrapolasyonuyla
+# $10^5+ tahmin üretebiliyor (`01` §8, 2026-02-17/22). Ham + temiz birlikte
+# raporlanır.
+
+
+def test_day_index(P: pd.DataFrame | pd.Series, long: bool = False) -> pd.DatetimeIndex:
+    """P (gün-indeksli) içinden dondurulmuş test penceresini döndürür.
+
+    `long=True` → 3 yıllık pencere (LEAR ailesi + naive, LightGBM'siz).
+    `long=False` → birincil 728 günlük pencere (LightGBM'li tam yarış).
+
+    P'nin indeksi tz-aware (Europe/Istanbul) normalize edilmiş günler olmalı —
+    `build_lear_matrix`'in döndürdüğü ikinci değer bu formatta.
+    """
+    idx = P.index
+    start = LONG_TEST_START if long else TEST_START
+    return idx[(idx >= start) & (idx <= TEST_END)]
+
+
+def regime_of(days: pd.DatetimeIndex) -> pd.Series:
+    """Gün indeksini rejim katmanı etiketine eşler (birincil pencere).
+    Katman dışı günler için NaN."""
+    lab = pd.Series(np.nan, index=days, dtype=object)
+    for name, (a, b) in REGIME_STRATA.items():
+        a = pd.Timestamp(a, tz=days.tz)
+        b = pd.Timestamp(b, tz=days.tz)
+        lab[(days >= a) & (days <= b)] = name
+    return lab
+
+
+def clean_days(preds: dict[str, pd.DataFrame]) -> pd.DatetimeIndex:
+    """Birden çok model tahmin çerçevesi (gün × 24) verildiğinde, HERHANGİ
+    birinde patlama olan günleri dışlayıp temiz gün indeksini döndürür.
+    Adil kıyas için tüm modeller aynı gün kümesinde değerlendirilir.
+    """
+    blown = pd.Index([])
+    for d in preds.values():
+        blown = blown.union(d.index[(d.abs() > BLOWN_THRESHOLD_USD).any(axis=1)])
+    common = None
+    for d in preds.values():
+        common = d.index if common is None else common.intersection(d.index)
+    return common.difference(blown)
+
+
+# --------------------------------------------------------------------------
 # Naive tahminler — makale §5.4.2, denklem (8)
 # --------------------------------------------------------------------------
 

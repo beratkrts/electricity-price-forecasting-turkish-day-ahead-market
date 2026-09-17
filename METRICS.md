@@ -72,7 +72,12 @@ Tek bir toplam sayı yanıltıcı — genel WAPE'in ~%88'i $60 üstü saatlerden
 
 ---
 
-## 4. Mevcut baseline (canlı model, `gold.ptf_predictions_daily`)
+## 4. Mevcut baseline (14 Ağu 2026, `LightGBM_v1` dönemi — ARTIK CANLI DEĞİL)
+
+> Bu tablo 14 Ağustos 2026'da, tabloda tek model (`LightGBM_v1`) varken üretildi.
+> 2 Eylül'de `ensemble_v1` canlıya alındı — aşağıdaki sayılar **güncel canlı
+> performansı yansıtmıyor**, sadece o dönemin kaydı olarak duruyor. Güncel
+> baseline'ı §5'teki (model_name filtreli) SQL ile yeniden üret.
 
 | Dönem | n | MAE | Naive-3 MAE | **rMAE (naive-3)** | sMAPE | WAPE |
 |---|---|---|---|---|---|---|
@@ -88,8 +93,23 @@ Tek bir toplam sayı yanıltıcı — genel WAPE'in ~%88'i $60 üstü saatlerden
 
 ## 5. Hazır SQL
 
+> **⚠️ GÜNCELLEME (14 Eyl 2026):** Bu dosya 14 Ağustos'ta yazıldığında
+> `gold.ptf_predictions_daily`'de tek model (`LightGBM_v1`) vardı. 2 Eylül'de
+> `ensemble_v1` canlıya alındı ve **iki model artık aynı tabloda, çoğu hedef
+> saat için yan yana yaşıyor** (`LightGBM_v1` 18.000 satır, `ensemble_v1`
+> 17.783 satır, ikisi de neredeyse aynı 2 yıllık aralığı kapsıyor — geçmiş
+> `ensemble_v1` walk-forward backfill ile dolduruldu). `model_name` filtresi
+> **olmadan** aşağıdaki sorgu artık her hedef saat için iki satırı birden
+> ortalamaya katıyor: n sessizce ~2 katına çıkıyor, BIAS ölçülebilir şekilde
+> kayıyor (14 Eyl'de ölçüldü: filtresiz BIAS $1.18, `ensemble_v1` filtreli
+> $0.85 — %39 fark, hiçbir hata mesajı vermeden). Aynı hata sınıfı
+> `api_server.py`'deki 12 filtresiz sorguda da var (bkz. canlı repo memory
+> `api-server-model-name-filtresi-yok`). **Sorguyu her zaman `model_name`
+> filtreli çalıştır.**
+
 ```sql
 -- Cekirdek set + naive karsilastirmasi. Donem/model degistirerek kullan.
+-- model_name FİLTRESİ ŞART — yukarıdaki uyarıya bak.
 WITH b AS (
   SELECT p.target_ts, m.price_usd px, p.predicted_mcp_usd pred,
     p.predicted_mcp_usd_p10 p10, p.predicted_mcp_usd_p90 p90,
@@ -98,7 +118,8 @@ WITH b AS (
   FROM gold.ptf_predictions_daily p
   JOIN public.raw_mcp_hourly m  ON m.ts  = p.target_ts
   LEFT JOIN public.raw_mcp_hourly n1 ON n1.ts = p.target_ts - INTERVAL '1 day'
-  LEFT JOIN public.raw_mcp_hourly n7 ON n7.ts = p.target_ts - INTERVAL '7 day'),
+  LEFT JOIN public.raw_mcp_hourly n7 ON n7.ts = p.target_ts - INTERVAL '7 day'
+  WHERE p.model_name = 'ensemble_v1'),
 -- naive-3: Cmt/Paz/Pzt -> gecen hafta, Sal-Cum -> dun. Makalenin rMAE'si
 -- naive-2 (her zaman nv7); onu istersen asagidaki CASE'i `nv7` ile degistir.
 c AS (SELECT *, CASE WHEN dow IN (1,6,0) THEN nv7 ELSE nv1 END naive FROM b)
@@ -113,7 +134,7 @@ SELECT COUNT(*) n,
 FROM c WHERE naive IS NOT NULL;
 ```
 
-Fiyat dilimi ayrıştırması için `LOW_PRICE_REGIME_ANALYSIS.md` Bölüm 1'deki `CASE WHEN` bloğunu `GROUP BY` ile ekle.
+Fiyat dilimi ayrıştırması için `LOW_PRICE_REGIME_ANALYSIS.md` Bölüm 1'deki `CASE WHEN` bloğunu `GROUP BY` ile ekle (oradaki sorguya da aynı `model_name` filtresini ekle).
 
 ---
 

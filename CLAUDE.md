@@ -21,6 +21,19 @@ scriptleri `gold.ptf_predictions_experimental` / `gold.experiment_results` /
 `bronze.news_raw` gibi tablolara yazıyor). Canlı `raw_*`/`gold.ptf_predictions_daily`
 tablolarına **yazma yapma** — sadece deneysel/gold-experimental şemalara.
 
+## Python ortamı
+
+**İzole venv: `.venv/`** (repoda, `.gitignore`'da). `.venv/bin/python` kullan —
+sistem/pyenv-global değil. Kurulum: `python3 -m venv .venv && .venv/bin/pip
+install -r requirements.lock.txt`.
+
+`requirements.lock.txt` = canlı repo `../enerji_fiyat_tahmini/.venv` ile **birebir**
+146 paket (numpy 2.4.6, pandas 3.0.5, sklearn 1.9.0, lightgbm 4.7.0, torch 2.13.0).
+28 Ağu 2026'da senkron edildi; **feature-parity doğrulandı** — vendor edilmiş
+`src/features/feature_engineering.py` canlı modelle byte-identik çıktı veriyor
+(2208 saat × 70 özellik, max|Δ|=0). `requirements.txt` bu lock'un yorumlu özeti.
+`epftoolbox` bu venv'de DEĞİL (numpy<2, ayrı venv — aşağı bak).
+
 ## Dizin yapısı
 
 ```

@@ -1,0 +1,481 @@
+{
+  "curated_at": "2026-09-02T11:11:07.099986+03:00",
+  "n_candidates": 54,
+  "n_events": 23,
+  "n_dropped": 6,
+  "events": [
+    {
+      "start": "2021-07-01",
+      "end": "2021-07-31",
+      "label": "Temmuz 2021 — gaz tarifesi +%20, fiyat tavana dayandı",
+      "mechanism": "maliyet",
+      "direction": "yukari",
+      "confidence": "kesin",
+      "cand": [
+        3,
+        4
+      ],
+      "arts": [
+        43481,
+        43475,
+        43863,
+        44082
+      ],
+      "description": "1 Temmuz 2021'de BOTAŞ'ın elektrik üretimine uyguladığı doğal gaz tarifesi %20 artışla 2.056 TL/1000m³'e yükseldi. Aynı dönemde spot elektrik fiyatı azami fiyat limitine dayandı ve EPİAŞ tavanı ay içinde 636 TL/MWh'e çıkarıldı.",
+      "interpretation": "Tavanın fiilen bağlayıcı hale geldiği ilk dönem. Gaz tarifesindeki artış maliyet tabanını yukarı iterken fiyat tavana çarptı; bu noktadan sonra gözlenen MCP artık serbest bir piyasa dengesi değil, idari sınırın kendisi."
+    },
+    {
+      "start": "2021-09-01",
+      "end": "2021-12-31",
+      "label": "Sonbahar 2021 tarife rampası (2.369 → 4.800 TL)",
+      "mechanism": "maliyet",
+      "direction": "yukari",
+      "confidence": "kesin",
+      "cand": [
+        6,
+        7,
+        9,
+        10
+      ],
+      "arts": [
+        44348,
+        44725,
+        45165,
+        45690,
+        44520
+      ],
+      "description": "Eylül–Aralık 2021 arasında elektrik üretimine verilen doğal gaz tarifesi dört kez art arda zamlandı: 2.369 → 2.724 → 3.999 → 4.800 TL/1000m³. Kasım artışı tek başına %47'ydi. Aynı dönemde Avrupa spot gaz fiyatları rekor seviyelere çıkmıştı.",
+      "interpretation": "Küresel gaz şokunun Türkiye'ye idari kanaldan aktarıldığı dönem. Tarife piyasa fiyatını takip etti, ama bir karar olarak: gecikmeli ve kademeli. Şokun MCP'ye geçişi de aynı ölçüde gecikmeli — bu gecikme çalışmanın ana mekanizması."
+    },
+    {
+      "start": "2021-10-15",
+      "end": null,
+      "label": "AFL tavanı +%50 → 1.078 TL, formüle bağlandı",
+      "mechanism": "regülasyon",
+      "direction": "yukari",
+      "confidence": "kesin",
+      "cand": [
+        8
+      ],
+      "arts": [
+        44932,
+        44931,
+        44992,
+        45102
+      ],
+      "description": "15 Ekim 2021'de azami fiyat limiti yaklaşık %50 artışla 1.078 TL/MWh'e yükseltildi. EMO'nun değerlendirmesine göre yeni düzenlemeyle tavan bundan sonra otomatik artacak biçimde formüle bağlandı; Kasım tavanı 1.131 TL olarak açıklandı.",
+      "interpretation": "Tavanın sabit bir sınır olmaktan çıkıp maliyet endeksli bir mekanizmaya dönüştüğü an. Bu tarihten sonra tavan, fiyatı sınırlayan dışsal bir kısıt değil, maliyeti gecikmeli izleyen içsel bir değişken — analizde tavan serisi bu yüzden dışsal muamelesi göremez. Metodolojik olarak kataloğun en önemli satırı."
+    },
+    {
+      "start": "2022-01-01",
+      "end": null,
+      "label": "Ocak 2022 — tavan ve gaz tarifesi eşzamanlı zam",
+      "mechanism": "regülasyon",
+      "direction": "yukari",
+      "confidence": "muhtemel",
+      "cand": [
+        12,
+        13
+      ],
+      "arts": [
+        46117,
+        46181,
+        46182,
+        45954
+      ],
+      "description": "1 Ocak 2022'de azami fiyat limiti 1.345 TL/MWh'e, elektrik üretimine verilen gaz tarifesi %15 artışla 5.520 TL/1000m³'e çıktı. Basında tavanın Ocak ayı için %135 arttığı bildirildi; silver.price_cap_official serisi aynı tarihte %11'lik bir basamak kaydediyor — iki rakam farklı tanımlara ait, kaynak uyuşmazlığı çözülmedi.",
+      "interpretation": "Tavan ve yakıt tarifesinin aynı gün hareket etmesi bu dönemde kural haline geliyor; ikisinin etkisi ayrıştırılamaz. Olay bazlı değil rejim bazlı analiz gerektiğinin ilk açık işareti."
+    },
+    {
+      "start": "2022-01-18",
+      "end": "2022-02-05",
+      "label": "İran doğal gaz kesintisi",
+      "mechanism": "arz",
+      "direction": "yukari",
+      "confidence": "kesin",
+      "cand": [
+        14
+      ],
+      "arts": [
+        46538,
+        46565,
+        46682,
+        46594,
+        46643
+      ],
+      "description": "Ocak 2022'de İran'dan gelen doğal gaz sevkiyatının kesilmesi üzerine TEİAŞ elektrik kesintileri duyurdu, sanayi üretimine üç gün 'elektrik molası' verildi, sanayiye gaz kısıtı uygulandı ve arz açığının bir kısmı yerli kömürden karşılandı. Haber arşivinde olay 'İran' adıyla değil, sonuçlarıyla yer alıyor.",
+      "interpretation": "Kataloğun en temiz arz şoku: kısa, tanımlı, idari kararla değil fiziksel kısıtla oluşmuş. Fiyat temellerin belirgin biçimde üstüne çıktı ve saatlerin büyük kısmı tavanda gerçekleşti — tavan bağlayıcıyken şokun tam etkisi gözlenemez, ölçülen değer bir ALT SINIR. Ayrıntılı zaman çizelgesi: CRISIS_CASE_IRAN_2022.md."
+    },
+    {
+      "start": "2022-02-01",
+      "end": null,
+      "label": "Şubat 2022 — tavan ve tarife zammı, tavan baskısı zirveye yakın",
+      "mechanism": "regülasyon",
+      "direction": "yukari",
+      "confidence": "kesin",
+      "cand": [
+        15,
+        16
+      ],
+      "arts": [
+        46702,
+        46596,
+        46689,
+        46533
+      ],
+      "description": "1 Şubat 2022'de azami fiyat limiti 1.524 TL/MWh'e, elektrik üretimi amaçlı gaz tarifesi %14 artışla 6.300 TL/1000m³'e yükseldi. Spot elektrik aya tavandan girdi; basın tavanın Şubat'ta 'üçe katlandığını' aktardı.",
+      "interpretation": "Ocak–Nisan 2022, tavanın en sık bağladığı dönem: bu pencerede saatlerin yarıdan fazlası tavan fiyatta gerçekleşti. Gözlenen fiyatın önemli kısmı piyasa dengesi değil idari sınır; böyle pencerelerde MCP'den çıkarılan her arz/talep esnekliği tahmini aşağı yanlıdır."
+    },
+    {
+      "start": "2022-02-24",
+      "end": "2022-12-31",
+      "label": "Rusya-Ukrayna savaşı",
+      "mechanism": "jeopolitik",
+      "direction": "yukari",
+      "confidence": "muhtemel",
+      "cand": [
+        17
+      ],
+      "arts": [
+        47100,
+        47321,
+        49978,
+        50023,
+        49548
+      ],
+      "description": "24 Şubat 2022'de başlayan savaş boyunca Avrupa gaz fiyatları rekor seviyelere çıktı; Kuzey Akım-2'nin sigortası iptal edildi, Eylül 2022'de Gazprom Avrupa'ya gaz akışını tamamen kesti. Türkiye'de MCP aynı dönemde dolar bazında tarihi zirvesine ulaştı.",
+      "interpretation": "Savaşın başlangıcı ile MCP'nin yükselişi arasında dört-beş aylık bir mesafe var: enerji basınında anlatı yoğunluğu 24 Şubat'ta dikey sıçrarken fiyat Temmuz 2022'ye kadar tepki vermiyor (tfidf_signal.png). Şok piyasaya doğrudan değil, BOTAŞ tarifesi üzerinden geçiyor. Confound ağır — aynı dönemde kur, tavan ve AUF de hareket ediyor; savaşa atfedilen büyüklük bir ÜST SINIR. 'ABD-İsrail-İran savaşı' satırıyla birlikte okunmalı: o olay bu mekanizmanın kontrolü."
+    },
+    {
+      "start": "2022-03-01",
+      "end": null,
+      "label": "Mart 2022 — tavan bağlayıcılığı zirvede",
+      "mechanism": "regülasyon",
+      "direction": "yukari",
+      "confidence": "kesin",
+      "cand": [
+        18,
+        19
+      ],
+      "arts": [
+        47113,
+        47184,
+        47185,
+        47105
+      ],
+      "description": "1 Mart 2022'de azami fiyat limiti 1.745 TL/MWh'e, elektrik üretimi amaçlı gaz tarifesi %18 artışla 7.450 TL/1000m³'e çıktı. Aynı hafta yük alma/atma talimatlarında santrallerin korunmasına dair düzenleme yayımlandı.",
+      "interpretation": "Aylık ayarlama ritminin bir basamağı olarak seçildi, ama ölçüm onu ayrı bir rejim penceresi yapıyor: saatlerin üçte ikisi tavanda geçti — İran kesintisi penceresinden sonra kataloğun en yüksek tavan bağlayıcılığı. Tavanın bastırdığı oynaklığı tahmin etmek için en bilgilendirici pencere."
+    },
+    {
+      "start": "2022-04-01",
+      "end": null,
+      "label": "1 Nisan 2022 — AUF mekanizması + AFL 1.745 → 2.500 TL",
+      "mechanism": "regülasyon",
+      "direction": "karisik",
+      "confidence": "kesin",
+      "cand": [
+        20,
+        21,
+        22
+      ],
+      "arts": [
+        47685,
+        47689,
+        47615,
+        47495
+      ],
+      "description": "1 Nisan 2022'de azami fiyat limiti %43 artışla 2.500 TL/MWh'e çıkarıldı ve aynı tarihte azami uzlaştırma fiyatı (AUF) mekanizması devreye girdi. Düzenleme basında 'elektrikte tavan fiyat devrede' ve 'elektrik fiyatları desteklenecek' başlıklarıyla yer aldı. AUF, AFL'den farklı bir araçtır: teklif tavanı değil, üreticinin elde ettiği gelirin geri alınması esasına dayanır.",
+      "interpretation": "İki aracın aynı gün devreye girmesi Türkiye modelini Avrupa'daki gelir tavanı uygulamalarından ayırıyor: fiyat hem yukarıdan kesiliyor hem üretici geliri geri alınıyor. Bu tarihten sonra MCP, üreticinin fiilen aldığı fiyatın üst sınırı olmaktan çıkıyor — teklif davranışı modellenecekse ikisi ayrılmak zorunda. AFL≠AUF ayrımı literatürde de karıştırılıyor."
+    },
+    {
+      "start": "2022-05-19",
+      "end": "2022-06-30",
+      "label": "Mayıs–Haziran 2022 — tavan üç kez yükseldi, bağlayıcılığı düştü",
+      "mechanism": "regülasyon",
+      "direction": "karisik",
+      "confidence": "kesin",
+      "cand": [
+        23,
+        24,
+        26
+      ],
+      "arts": [
+        48414,
+        48558,
+        48424,
+        49021
+      ],
+      "description": "19 Mayıs 2022'de azami fiyat limiti 2.750 TL/MWh'e, 1 Haziran'da 3.200 TL'ye, 30 Haziran'da 3.750 TL'ye yükseltildi — altı haftada üç artış. Aynı pencerede MCP dolar bazında yükseldi ve tavanda geçen saatlerin payı %8,6'ya geriledi.",
+      "interpretation": "Tavan hızla yükseltilirken bağlayıcılığı düştü: sınır fiyatın önünden çekildi. METODOLOJİK UYARI — aday üretiminde bu olay 'tavan arttı, fiyat %32 düştü' diye görünüyordu; o rakam artış gününün tek günlük ortalamasıydı (25 saat). Altı haftalık pencerede fiyat %20 arttı. Tavan etkisi ölçülen pencereye aşırı duyarlı ve tek günlük karşılaştırmalar yanıltıyor; kataloğun her satırı bu yüzden final penceresinden yeniden ölçüldü."
+    },
+    {
+      "start": "2022-06-01",
+      "end": "2022-09-30",
+      "label": "Yaz 2022 — gaz tarifesi zirvesi (20.625 TL) ve MCP rekoru",
+      "mechanism": "maliyet",
+      "direction": "yukari",
+      "confidence": "kesin",
+      "cand": [
+        25,
+        27,
+        28,
+        29,
+        30
+      ],
+      "arts": [
+        48595,
+        49461,
+        49459,
+        49974,
+        49427
+      ],
+      "description": "Haziran–Eylül 2022 arasında elektrik üretimine verilen gaz tarifesi 12.525 TL'den 20.625 TL/1000m³'e çıktı; Eylül artışı tek başına %50'ydi. Azami fiyat limiti aynı dönemde 3.200 → 4.800 TL/MWh'e yükseldi. MCP dolar bazında serinin zirvesine ulaştı.",
+      "interpretation": "Maliyet şokunun en büyük olduğu pencere: tarife dört ayda %65 arttı, MCP dolar zirvesine ulaştı. Dört aylık ortalamada kalıntı küçük ve pozitif — toplamda fiyat temellerle uyumlu hareket etti. Ama Eylül'deki %50'lik tarife sıçramasının dar çevresinde kalıntı sert biçimde negatife dönüyor (adaylar #29/#30, ~−32 USD): büyük tarife basamakları MCP'ye anında geçmiyor, aylar içinde emiliyor. UYARI: crisis_cf_v5 gaz maliyetini güçlü girdi olarak kullandığı için dar pencere kalıntıları kısmen model kaynaklı olabilir; geçişkenlik katsayısı gecikme yapısıyla ve düzgün standart hatalarla ayrıca tahmin edilmeli."
+    },
+    {
+      "start": "2023-01-01",
+      "end": "2023-04-30",
+      "label": "2023 geri sarımı — tavan 4.800 → 2.600, tarife 20.625 → 10.000 TL",
+      "mechanism": "regülasyon",
+      "direction": "asagi",
+      "confidence": "kesin",
+      "cand": [
+        32,
+        33,
+        35,
+        37,
+        38,
+        39,
+        41
+      ],
+      "arts": [
+        52175,
+        52217,
+        52617,
+        53075,
+        53500,
+        53499
+      ],
+      "description": "Ocak–Nisan 2023 arasında hem azami fiyat limiti hem gaz tarifesi art arda indirildi: tavan 4.800 → 4.200 → 3.650 → 3.050 → 2.600 TL/MWh; gaz tarifesi 20.625 → 18.000 → 15.000 → 12.000 → 10.000 TL/1000m³. Sanayi elektriğine %16 indirim açıklandı.",
+      "interpretation": "Geri sarım penceresinde kontrafaktüel kalıntı ısrarla POZİTİF: fiyat, maliyetteki düşüşün ima ettiği kadar düşmedi. Büyük tarife ARTIŞLARININ da fiyata tam geçmediği gözlemiyle ('Ekim 2023' satırı ve Eylül 2022 basamağı) birlikte okununca ortaya asimetri değil YAPIŞKANLIK çıkıyor: MCP idari maliyetten her iki yönde de daha az oynak. Aynı model uyarısı burada da geçerli."
+    },
+    {
+      "start": "2023-01-15",
+      "end": "2023-03-30",
+      "label": "AUF'a yargı freni ve mekanizmanın uzatılması",
+      "mechanism": "regülasyon",
+      "direction": "karisik",
+      "confidence": "kesin",
+      "cand": [
+        34,
+        40
+      ],
+      "arts": [
+        52468,
+        52429,
+        52503,
+        52529,
+        53483
+      ],
+      "description": "Ocak 2023'te EPDK'nin azami uzlaştırma fiyatı uygulamasına yargı freni geldi; üreticilerin mekanizma kapsamında 1 milyar TL geri ödeme yaptığı bildirildi ve hidroelektrik kaynak katkı payı hesabında AUF etkisi tartışmaya açıldı. 30 Mart 2023'te mekanizma buna rağmen uzatıldı; doğalgaz ve kömür santrallerine üretim desteği açıklandı.",
+      "interpretation": "AUF'un hukuken tartışmalı hale geldiği ama uygulanmaya devam ettiği dönem. Üretici davranışı modellenecekse önemli: mekanizmanın kalıcılığına dair belirsizlik teklif stratejisini etkiler ve bu belirsizlik fiyat serisinde doğrudan görünmez. Aday üretiminde hedeflenmemişti — retrieval'ın kendiliğinden çıkardığı tek yeni olay."
+    },
+    {
+      "start": "2023-02-06",
+      "end": "2023-02-28",
+      "label": "Kahramanmaraş depremi",
+      "mechanism": "talep",
+      "direction": "asagi",
+      "confidence": "kesin",
+      "cand": [
+        36
+      ],
+      "arts": [
+        52763,
+        52829,
+        52760,
+        52777,
+        52833
+      ],
+      "description": "6 Şubat 2023 depremlerinde üç il ve dokuz ilçede doğal gaz akışı durdu, bölgede elektrik kesintileri yaşandı. Akkuyu ve büyük üretim tesislerinde hasar bildirilmedi. Deprem bölgesinde avans ödemeleri ve teminat yükümlülükleri ertelendi.",
+      "interpretation": "Talep tarafı şoku: bölgesel tüketimin düşmesi fiyatı aşağı çekti. Kontrafaktüel kalıntı sıfıra yakın — fiyat hareketinin tamamı temeller (düşen yük) tarafından açıklanıyor. Çok büyük bir olayın fiyatta açıklanmamış bir sapma bırakmaması, olay-etki analizinde negatif sonucun da bulgu olduğunu gösteren en iyi örnek."
+    },
+    {
+      "start": "2023-06-01",
+      "end": "2023-06-30",
+      "label": "Haziran 2023 — fiyatın rejim değiştirmesi",
+      "mechanism": "arz",
+      "direction": "asagi",
+      "confidence": "muhtemel",
+      "cand": [
+        42
+      ],
+      "arts": [
+        54712,
+        54701,
+        54321,
+        54308
+      ],
+      "description": "Haziran 2023'te MCP dolar bazında %28 geriledi. Aynı dönemde Avrupa gaz fiyatları düşüyordu, lisanssız kurulu güç 9 bin MW'ı aşmıştı ve Türkiye kurulu gücünün %54'ü yenilenebilir kaynaklara ulaşmıştı. EPDK, PTF tavan fiyatındaki artışın faturalara yansımayacağını açıkladı.",
+      "interpretation": "Tek bir belgelenmiş olaya bağlanamıyor; yenilenebilir payının artışı ve gaz maliyetindeki gerileme birlikte etkili. Haber retrieval'ı bu pencerede zayıf. Kataloğa olay olarak değil REJİM GEÇİŞİ olarak girdi — 2022 zirvesinden 2024 platosuna inişin kırılma noktası."
+    },
+    {
+      "start": "2023-10-01",
+      "end": null,
+      "label": "Ekim 2023 — tarife +%20, fiyat temellerin altında kaldı",
+      "mechanism": "maliyet",
+      "direction": "karisik",
+      "confidence": "kesin",
+      "cand": [
+        43
+      ],
+      "arts": [
+        55873,
+        55874,
+        55899
+      ],
+      "description": "30 Eylül 2023'te elektrik üretimine verilen doğal gaz tarifesi %20 zamlandı (12.000 TL/1000m³) ve elektrik fiyatlarına zam açıklandı. Takip eden ayda MCP dolar bazında %8 arttı.",
+      "interpretation": "%20'lik maliyet artışına karşılık fiyat %8 arttı ve kontrafaktüel kalıntı negatife döndü — temellerin ima ettiğinden az. Tarife artışının fiyata KISMİ geçtiği en temiz tekil örnek; 'Nisan 2026' satırıyla birlikte, idari araçların hareketinin fiyat hareketiyle bire bir eşleşmediğini gösteren çift."
+    },
+    {
+      "start": "2024-07-01",
+      "end": "2024-07-31",
+      "label": "Temmuz 2024 — tavan 3.000 TL ve yaz zirvesi",
+      "mechanism": "talep",
+      "direction": "yukari",
+      "confidence": "kesin",
+      "cand": [
+        45,
+        46
+      ],
+      "arts": [
+        59281,
+        59181
+      ],
+      "description": "29 Haziran 2024'te azami fiyat limiti 3.000 TL/MWh'e yükseltildi. Temmuz ayında MCP dolar bazında %22 arttı ve saatlerin dörtte birine yakını tavan fiyatta gerçekleşti.",
+      "interpretation": "Mevsimsel talep zirvesi. Kontrafaktüel kalıntı sıfıra yakın — artış temellerle açıklanıyor, ayrıca anlatılacak bir olay yok. Yaz zirvelerinin 'olay' sanılmaması için kataloğa bilinçli olarak bu etiketle girdi."
+    },
+    {
+      "start": "2025-04-05",
+      "end": null,
+      "label": "Nisan 2025 — tavan 3.400 TL ve gecikmeli tarife zammı",
+      "mechanism": "regülasyon",
+      "direction": "yukari",
+      "confidence": "kesin",
+      "cand": [
+        47,
+        48
+      ],
+      "arts": [
+        62872,
+        62869
+      ],
+      "description": "5 Nisan 2025'te azami fiyat limiti 3.400 TL/MWh'e çıkarıldı; elektrik üretimine verilen gaz tarifesi %24 artışla 14.904 TL/1000m³'e yükseldi. Basında zam 'gecikmeli' olarak nitelendirildi.",
+      "interpretation": "Tavan-tarife eşzamanlılığı 2025'te de sürüyor. 'Gecikmeli zam' nitelemesi idari kanalın tanımlayıcı özelliğini özetliyor: maliyet değiştiğinde tarife hemen değil, karar alındığında hareket ediyor."
+    },
+    {
+      "start": "2025-06-12",
+      "end": "2025-06-26",
+      "label": "ABD-İsrail-İran savaşı",
+      "mechanism": "jeopolitik",
+      "direction": "karisik",
+      "confidence": "muhtemel",
+      "cand": [
+        49
+      ],
+      "arts": [
+        63794,
+        63790,
+        63789,
+        63723,
+        63754
+      ],
+      "description": "13 Haziran 2025'te başlayan çatışmada Brent 78 doları aştı, İran Meclisi Hürmüz Boğazı'na ilişkin karar aldı ve Goldman Sachs jeopolitik riskin petrolü 10 dolar artırabileceğini bildirdi. Küresel LNG fiyatları %3 arttı.",
+      "interpretation": "2022 Rusya-Ukrayna satırının kontrolü. Enerji basınında anlatı yoğunluğu dönemin en yüksek seviyesine çıktı (z ≈ +4) ama takip eden haftalarda kontrafaktüel kalıntı yükselmedi ve BOTAŞ tarifesi hareket etmedi. DİKKAT: pencere içi ortalama kalıntı pozitif, gecikmeli korelasyon negatif — iki ölçüm farklı şeyler söylüyor, güven bu yüzden 'muhtemel'. Net okuma: idari vana açılmadığı için jeopolitik şok MCP'ye geçmedi."
+    },
+    {
+      "start": "2025-07-01",
+      "end": "2025-07-31",
+      "label": "Temmuz 2025 — yaz zirvesi",
+      "mechanism": "talep",
+      "direction": "yukari",
+      "confidence": "kesin",
+      "cand": [
+        50
+      ],
+      "arts": [
+        63869,
+        63760,
+        63879
+      ],
+      "description": "Temmuz 2025'te MCP dolar bazında %32 arttı. Son 6 aylık YEKDEM maliyet öngörüsü 307,17 lira olarak açıklandı; aynı dönemde elektrik borsasına 'esnek tavan' önerisi tartışıldı.",
+      "interpretation": "Bir önceki satırın hemen ardından gelen bu yükseliş savaşa değil yaz talebine ait: kontrafaktüel kalıntı sıfıra yakın. İkisinin yan yana durması, jeopolitik şoka atfedilebilecek yükselişin aslında mevsimsel olduğunu gösteriyor — kataloğun kendi içinde kurduğu kontrol."
+    },
+    {
+      "start": "2026-02-01",
+      "end": "2026-05-31",
+      "label": "2026 çöküşü — hidro bolluğu ve sıfır fiyatlı saatler",
+      "mechanism": "arz",
+      "direction": "asagi",
+      "confidence": "kesin",
+      "cand": [
+        51
+      ],
+      "arts": [
+        68154,
+        68309,
+        67409,
+        68478
+      ],
+      "description": "Şubat–Mayıs 2026 arasında MCP dolar bazında %57 geriledi. Mayıs'ta gündüz saatlerinde spot elektrik fiyatının sıfır TL olacağı duyuruldu; artan yağışlarla hidroelektrik üretimi rekor kırdı. Sektörde 'sıfır fiyatlı saatler' ve negatif fiyat tartışması açıldı.",
+      "interpretation": "Sürücü güneş değil HİDRO (04_zero_price_crisis/01_low_price_regime_analysis.ipynb). Tavanın bağlamadığı, dolayısıyla idari kanalın fiilen devre dışı kaldığı bir rejim — fiyat oluşumunun tamamen arz tarafından belirlendiği nadir pencere. Tavan-bağlayıcı 2022 pencereleriyle doğal karşılaştırma grubu; çalışmanın kimlik stratejisi buna dayanabilir."
+    },
+    {
+      "start": "2026-04-04",
+      "end": null,
+      "label": "Nisan 2026 — tavan +%32 → 4.500 TL, iz bırakmadı",
+      "mechanism": "regülasyon",
+      "direction": "karisik",
+      "confidence": "kesin",
+      "cand": [
+        52,
+        53
+      ],
+      "arts": [
+        67633,
+        67710,
+        67654,
+        67642
+      ],
+      "description": "2 Nisan 2026'da piyasa takas fiyatı tavanı %32 artışla 4.500 TL/MWh'e yükseltildi; 3 Nisan'da doğal gaz ve elektrik zamlandı (gaz tarifesi 18.000 TL/1000m³). Basında tavan artışının ardından spot fiyatın yükseldiği bildirildi, ancak aylık ortalama dolar bazında gerilemeye devam etti.",
+      "interpretation": "Tavan artışının etkisine dair kataloğun EN TEMİZ testi: düşük fiyat rejiminin ortasında tavan %32 yükseltildi, takip eden ayda fiyat %44 geriledi ve tavanda geçen saat payı %3'te kaldı. Günlük bazda bildirilen kısa yükselişle aylık ortalamanın ayrışması, tavanın yalnızca bağlayıcı olduğu saatlerde çalıştığı tezini doğrudan destekliyor — ve tavan etkisini 'tavan değişti mi' üzerinden ölçen çalışmaların (Energy Policy 2022) neden sıfır bulduğunu açıklıyor: sorun yöntemde değil, tavanın o pencerelerde bağlamamasında."
+    },
+    {
+      "start": "2026-06-01",
+      "end": "2026-07-31",
+      "label": "Haziran–Temmuz 2026 — hidro normalleşmesi ve toparlanma",
+      "mechanism": "arz",
+      "direction": "yukari",
+      "confidence": "kesin",
+      "cand": [
+        54
+      ],
+      "arts": [
+        68399,
+        68553,
+        69377,
+        69107
+      ],
+      "description": "Haziran–Temmuz 2026'da MCP dolar bazında dip seviyeden üç katına yakın toparlandı. Hidroelektrik üretiminin normale dönmesi ve yaz talebi etkili oldu; Temmuz'da elektrik tarifesine %5,8 zam yapıldı.",
+      "interpretation": "2026 çöküşünün simetrik karşılığı. Kalıntının sıfıra yakın olması hem çöküşün hem toparlanmanın temellerle (hidro payı, mevsimsel talep) açıklandığını, idari müdahaleye ihtiyaç duymadığını gösteriyor. Arz kaynaklı rejimin oynaklığı idari rejimden yüksek ama daha öngörülebilir."
+    }
+  ],
+  "dropped": {
+    "1": "Mayıs 2021 tarife +%12 — enflasyon kaynaklı aylık drift, fiyatta karşılığı yok (%+4,5).",
+    "2": "Haziran 2021 tarife +%5 — drift.",
+    "5": "Ağustos 2021 tarife +%0 — tarife değişmedi, olay değil.",
+    "11": "Aralık 2021 kur şoku — retrieval çuvalladı (ilk 10 haberin hiçbiri kur şokuyla ilgili değil) ve hedef değişken USD bazlı olduğu için TL değer kaybı zaten mekanik olarak içeriliyor.",
+    "31": "Kasım 2022 tarife +%0 — tarife değişmedi, olay değil.",
+    "44": "Nisan 2024 MCP −%20 — gerçek bir hareket ama retrieval tamamen gürültü (Çin kömür üretimi). Belgelenebilir bir olaya bağlanamadığı için kataloğa alınmadı; bahar yenilenebilir dibi olarak 'Haziran 2023' rejim satırıyla aynı aileden."
+  }
+}

@@ -29,7 +29,14 @@ CLI için: `docker exec enerji_postgres psql -U postgres -d enerji_db -c "<SQL>"
 
 ## 1. Modelin fiyat dilimine göre hatası (2 yıl)
 
-Genel: **N=17.520 saat, WAPE %12.24, MAE $7.26, BIAS +$1.52** (2024-08-12 → 2026-08-14)
+Genel: **N=17.520 saat, WAPE %12.24, MAE $7.26, BIAS +$1.52** (2024-08-12 → 2026-08-14, `LightGBM_v1` dönemi)
+
+> **⚠️ GÜNCELLEME (14 Eyl 2026):** Bu sorgu 14 Ağustos'ta, tabloda tek model
+> varken yazıldı. 2 Eylül'de `ensemble_v1` canlıya alındı; tablo artık iki
+> modeli aynı anda taşıyor (bkz. `METRICS.md` §5 uyarısı — filtresiz sorgu
+> çift satır sayıp BIAS'ı sessizce kaydırıyor, ölçülen fark %39). Aşağıdaki
+> sorgu `model_name` filtresiyle güncellendi; **aşağıdaki sonuç tablosu hâlâ
+> eski (`LightGBM_v1`) döneme ait** — yeniden koşulmadı.
 
 ```sql
 SELECT
@@ -50,6 +57,7 @@ SELECT
   ROUND(100.0 * AVG(((m.price_usd BETWEEN p.predicted_mcp_usd_p10 AND p.predicted_mcp_usd_p90))::int), 1) kapsama
 FROM gold.ptf_predictions_daily p
 JOIN public.raw_mcp_hourly m ON m.ts = p.target_ts
+WHERE p.model_name = 'ensemble_v1'  -- 14 Eyl 2026'da eklendi, bkz. uyarı yukarıda
 GROUP BY 1 ORDER BY 1;
 ```
 
