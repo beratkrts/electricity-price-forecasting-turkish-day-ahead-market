@@ -17,3 +17,7 @@ env/
 reports/
 logs/
 experiments/notebooks/07_lago_protocol/_wind_2021_2024.pkl
+
+# Markdown notes/docs kept out of the public repo
+*.md
+!/README.md
